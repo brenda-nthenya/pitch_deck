@@ -47,6 +47,16 @@ class Comments(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
     comment = db.Column(db.String(), nullable = False)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+
+    def save_u(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
     def __repr__(self):
         return f'User {self.name}'
