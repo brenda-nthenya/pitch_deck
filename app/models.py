@@ -1,13 +1,25 @@
-from . import db
+from . import db,login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 
-class User(db.Model):
+
+class User(UserMixin,db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(255))
+    email = db.Column(db.String(255),unique=True,index=True)
     pass_secure = db.Column(db.String(255))
+
+
+    def save_u(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
     @property
     def  password(self):
@@ -17,7 +29,7 @@ class User(db.Model):
     def password(self,password):
         self.pass_secure = generate_password_hash(password)
 
-    def verify_passowrd(self, password):
+    def verify_password(self, password):
         return check_password_hash(self.pass_secure,password)
 
 
@@ -32,3 +44,32 @@ class Comments(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+
+
+
+class Upvote(db.Model):
+    __tablename__ = 'upvotes'
+
+    id = db.Column(db.Integer,primary_key=True)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_upvotes(cls,id):
+        upvote = Upvote.query.filter_by(pitch_id=id).all()
+        return upvote
+
+
+    def __repr__(self):
+        return f'{self.user_id}:{self.pitch_id}'
+
+
+@login_manager
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
