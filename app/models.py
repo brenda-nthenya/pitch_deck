@@ -14,7 +14,7 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
-    comment = db.relationship('Comment', backref='user', lazy='dynamic')
+    comment = db.relationship('Comments', backref='user', lazy='dynamic')
     upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='user',lazy='dynamic')
 
@@ -50,7 +50,7 @@ class Comments(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
 
-    def save_u(self):
+    def save_comment(self):
         db.session.add(self)
         db.session.commit()
 
@@ -114,7 +114,7 @@ class Pitch(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255),nullable = False)
     post = db.Column(db.Text(), nullable = False)
-    comment = db.relationship('Comment',backref='pitch',lazy='dynamic')
+    comment = db.relationship('Comments',backref='pitch',lazy='dynamic')
     upvote = db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='pitch',lazy='dynamic')
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
