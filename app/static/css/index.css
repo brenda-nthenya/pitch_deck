@@ -1,7 +1,4 @@
-.body {
-    color:antiquewhite;
 
-}
 
 #cats{
     color: white;
@@ -10,7 +7,7 @@
 }
 #carded{
     border-radius:6px; 
-    background-color: rgb(13, 23, 94);
+    background-color: rgb(26, 43, 178);
 }
 #posts{
     color: rgb(255, 255, 255);
@@ -64,8 +61,8 @@
     color: black;
 }
 .pitches{
-    background-color: azure;
-    color: black;
+    background-color: rgb(9, 39, 84);
+    color: rgb(220, 206, 206);
     padding: 2%;
     border-radius: 8px;
     margin-bottom: 1%;
