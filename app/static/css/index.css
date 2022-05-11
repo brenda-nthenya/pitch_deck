@@ -1,3 +1,85 @@
-*{
-    background-image: url('/app/static/photos/1567666.png');
+.body {
+    color:antiquewhite;
+
+}
+
+#cats{
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+#carded{
+    border-radius:6px; 
+    background-color: rgb(13, 23, 94);
+}
+#posts{
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    margin-top: 2%;
+    font-size: 40px;
+    font-family: 'Farro', sans-serif;
+}
+.pict{
+    margin-top: 2%;
+}
+.foot{
+    margin: 20px;
+    
+}
+#postform{
+    color:rgb(244, 242, 247);
+    margin-top: 3%;
+    background-color: rgba(0, 0, 0, 0.456);
+    padding:3%;
+    border-radius: 8px;
+    z-index: 1;
+}
+#login{
+    margin-top: 5%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.456);
+    border-radius: 8px;
+    padding:3%;
+}
+#sign{
+    color:rgb(0, 0, 0);
+    text-decoration: underline;
+}
+#coms{
+    color: black;
+}
+#allcomments{
+    /* background-color: rgba(0, 0, 0, 0.589); */
+    padding-top: 2%;
+    border-radius: 10px;
+    height: 100%;
+    
+}
+.commentform{
+    color: black;
+    margin-top: 1%;
+}
+#user{
+    margin-top: 4%;
+    color: black;
+}
+.pitches{
+    background-color: azure;
+    color: black;
+    padding: 2%;
+    border-radius: 8px;
+    margin-bottom: 1%;
+}
+.updateprofile{
+    margin-top: 5%;
+    color: white;
+}
+#particles-js {
+    /* height: inherit; */
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    /* background-position: 50% 50%; */
+}
+#imgform{
+    display: none;
 }
