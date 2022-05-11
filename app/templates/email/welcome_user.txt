@@ -1,0 +1,5 @@
+Hello {{user.username}}
+
+Welome to our pitch deck. We shall give you the opportunity to pitch your idea.
+Get immediate feedback before your big moment. 
+It's yout time to shine.
