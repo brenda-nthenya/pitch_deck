@@ -53,7 +53,7 @@ def comment(pitch_id):
         pitch_id = pitch_id
         user_id = current_user._get_current_object().id
         new_comment = Comments(comment = comment,user_id = user_id,pitch_id = pitch_id)
-        new_comment.save_c()
+        new_comment.save_comment()
         return redirect(url_for('.comment', pitch_id = pitch_id))
     return render_template('comment.html', form =form, pitch = pitch,all_comments=all_comments)
 
