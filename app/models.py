@@ -58,6 +58,11 @@ class Comments(db.Model):
         db.session.delete(self)
         db.session.commit()
 
+    @classmethod
+    def get_comments(cls,pitch_id):
+        comments = Comments.query.filter_by(pitch_id=pitch_id).all()
+        return comments
+
     def __repr__(self):
         return f'User {self.name}'
 
