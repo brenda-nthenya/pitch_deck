@@ -15,6 +15,10 @@ class Config:
 class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     
+    @staticmethod
+    def init_app(app):
+        pass
+    
 
 class TestConfig(Config):
     pass
