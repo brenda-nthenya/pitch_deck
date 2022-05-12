@@ -8,7 +8,7 @@ This  is a flask application that allows users to post one minute pitches and al
 
 ## Live Link
 
-
+[Pitch-deck](https://pitch-deck-ideas.herokuapp.com/)
 
 ## User Story
 
@@ -27,8 +27,6 @@ This  is a flask application that allows users to post one minute pitches and al
 | Select Login | **Username** and **password** | Redirect to page with app pitches based on categories and commenting section|
 | Select comment button | **Comment** | Form that you input your comment|
 | Click on submit |  | Redirect to all comments tamplate with your comment and other comments|
-
-
 
 
 
