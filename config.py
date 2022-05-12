@@ -1,9 +1,5 @@
 import os
-import re
 
-uri = os.getenv("DATABASE_URL")  # or other relevant config var
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
 
 class Config:
     SECRET_KEY=os.environ.get('SECRET_KEY')
@@ -21,7 +17,7 @@ class Config:
 # rest of connection code using the connection string `uri`
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("uri")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     @staticmethod
     def init_app(app):
         pass
