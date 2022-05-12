@@ -20,7 +20,7 @@ class Config:
 # rest of connection code using the connection string `uri`
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("uri")
     @staticmethod
     def init_app(app):
         pass
